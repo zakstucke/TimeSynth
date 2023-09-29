@@ -1,5 +1,4 @@
 import numpy as np
-import scipy.special
 from .base_signal import BaseSignal
 
 __all__ = ['GaussianProcess']
@@ -38,6 +37,8 @@ class GaussianProcess(BaseSignal):
     """
 
     def __init__(self, kernel="SE", lengthscale=1., mean=0., variance=1., c=1., gamma=1., alpha=1., offset=0., nu=5./2, p=1.):
+        import scipy.special
+
         self.vectorizable = True
         self.lengthscale = lengthscale
         self.mean = mean

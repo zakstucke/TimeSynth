@@ -1,9 +1,6 @@
 import warnings
 import numpy as np
 from .base_signal import BaseSignal
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore")
-    from jitcdde import y, t, jitcdde
 
 
 __all__ = ['MackeyGlass']
@@ -41,6 +38,10 @@ class MackeyGlass(BaseSignal):
     """
 
     def __init__(self, tau=17., n=10., beta=0.2, gamma=0.1, initial_condition=None, burn_in=500):
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            from jitcdde import y, t, jitcdde        
+        
         self.vectorizable = True
 
         # Set system of equations
